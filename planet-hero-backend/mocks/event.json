@@ -1,0 +1,13 @@
+{
+  "name" : "Clean Forest",
+  "teams" : [],
+  "imageURL" : "https://lh3.googleusercontent.com/proxy/jgh5b8ObioSwr2fcG76AJxtBqdLnzYEe5NgRhbbA-seJlqtzCFK9S7RRgmh-zb3p21rDrXXQpIeMqi-U6wz2UXYF2_Yq_0LtHyerjxOi2TgPqChOfuZd-Dv1BWOAhyYMbpc2GZFiMYMf-28b",
+  "location" : {
+    "name" : "Forest",
+    "coords" : {
+      "lng": "50.4704821",
+      "lat": "30.6218849"
+    }
+  },
+  "data" : "20.07.20"
+}
