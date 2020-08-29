@@ -1,4 +1,4 @@
-/planet-hero-backend/node_modules
-/planet-hero-backend/etc/config.js
-/planetHero/node_modules
+etc/config.js
+client/node_modules
+/node_modules
 .idea

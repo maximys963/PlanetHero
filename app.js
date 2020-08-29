@@ -7,7 +7,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./etc/config');
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
 const eventRouter = require('./routes/events');
 
@@ -20,6 +20,7 @@ connect.then((db) => {
 });
 
 const app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
