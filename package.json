@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon bin/www",
-    "prod" : "NODE_ENV=production node bin/www"
+    "prod": "NODE_ENV=production node bin/www"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -24,7 +24,6 @@
     "passport-local-mongoose": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "nodemon": "^2.0.4"

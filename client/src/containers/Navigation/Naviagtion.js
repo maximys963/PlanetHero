@@ -25,7 +25,7 @@ export function Navigation() {
                 render={() => (
                     !isLogged
                         ? <LoginScreen />
-                        : <Redirect to='/events' />
+                        : <Redirect to='/planetHero/events' />
                 )}
             />
             <Route path='/planetHero' render={() => (
@@ -48,6 +48,6 @@ export function Navigation() {
                     ? <Teams />
                     : <Redirect to='/login' />
             )} />
-            <Redirect to='/planetHero' />
+            <Redirect to='/planetHero/events' />
         </Switch>
     );}
