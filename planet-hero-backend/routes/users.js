@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const User = require('../models/user');
+const cors = require('./cors');
 
 const authenticate = require('../authenticate');
 
@@ -10,8 +11,9 @@ const userRouter = express.Router();
 userRouter.use(bodyParser.json());
 
 /* GET users listing. */
+userRouter.options('*', cors.corsWithOptions, (req, res) => { res.sendStatus(200)});
 userRouter.route('/')
-  .get(authenticate.verifyUser, authenticate.verifyAdmin, async (req, res, next) => {
+  .get(cors.cors, authenticate.verifyUser, authenticate.verifyAdmin, async (req, res, next) => {
     try {
       const users = await User.find({});
       res.statusCode = 200;
@@ -28,6 +30,9 @@ userRouter.route('/signup')
       username,
       password,
     } = req.body;
+
+    console.log('req.body', req.body);
+
     User.register(new User({ username }),
       password,
       (err, user) => {
@@ -52,7 +57,7 @@ userRouter.route('/signup')
       });
   });
 
-userRouter.post('/login', passport.authenticate('local'), (req, res, next) => {
+userRouter.post('/login', cors.corsWithOptions, (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return next(err);
 

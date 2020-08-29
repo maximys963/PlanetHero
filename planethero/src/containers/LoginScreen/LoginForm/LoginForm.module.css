@@ -1,0 +1,42 @@
+.formContainer {
+    height: 400px;
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid white;
+}
+
+.input {
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-family: 'Alata', sans-serif;
+    color: white;
+}
+
+.signUpContainer {
+    margin-top: 3px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: 'Alata', sans-serif;
+    color: white;
+}
+
+.question {
+    margin-right: 10px;
+}
+
+.signUp:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

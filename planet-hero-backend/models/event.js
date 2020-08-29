@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const eventScheme = new Schema({
-  name: {
+  title: {
     type: String,
     default: '',
+  },
+  description: {
+    type: String,
+    default: 'Lorem, ipsum dolor sit amet',
   },
   teams: {
     type: [],

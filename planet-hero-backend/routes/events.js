@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('./cors');
 
 const Events = require('../models/event');
 
@@ -9,8 +10,10 @@ const eventRouter = express.Router();
 
 eventRouter.use(bodyParser.json());
 
+eventRouter.options('*', cors.corsWithOptions, (req, res) => { res.sendStatus(200) });
+
 eventRouter.route('/')
-  .get(authenticate.verifyUser, async (req, res, next) => {
+  .get(cors.cors, authenticate.verifyUser, async (req, res, next) => {
     try {
       const events = await Events.find({});
       res.statusCode = 200;
@@ -22,7 +25,7 @@ eventRouter.route('/')
       next(err);
     }
   })
-  .post(authenticate.verifyUser, async (req, res, next) => {
+  .post(cors.cors, authenticate.verifyUser, async (req, res, next) => {
     try {
       console.log('req', req.body);
       const event = await Events.create(req.body);
