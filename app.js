@@ -4,7 +4,9 @@ const passport = require('passport');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const compression = require('compression');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 const config = require('./etc/config');
 
 const indexRouter = require('./routes');
@@ -20,7 +22,11 @@ connect.then((db) => {
 });
 
 const app = express();
+const dev = app.get('env') !== 'production';
 
+if (!dev) {
+  app.use(express.static(path.resolve('client/build')));
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
