@@ -18,14 +18,15 @@ import * as eventActions from '../../actions/events';
 function Events(){
     const [activeEventPage, setActiveEventPage] = useState('event');
     const dispatch = useDispatch();
-    const events = useSelector(state => state.events.list);
+    const events = useSelector(state => state.events.list) || [];
     const isEventsLoading = useSelector(state => state.events.isEventsLoading);
-
-    console.log('events', events);
 
     useEffect(() => {
         dispatch(eventActions.getEvents());
     }, []);
+
+
+    console.log('isEventsLoading', isEventsLoading);
 
     return (
         <div className={styles.event_page}>
